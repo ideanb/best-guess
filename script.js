@@ -2,6 +2,7 @@ let features;
 let classifier;
 let loadingModel;
 let resultContainer = document.querySelector('.result');
+let imageContainer = document.querySelector('.imageContainer');
 
 features = ml5.featureExtractor('MobileNet', modelReady);
 
@@ -85,4 +86,11 @@ async function classify() {
     console.log(result);
     resultContainer.textContent = `Result: ${result.toUpperCase()}`;
   })
+}
+
+const displayImage = async () => {
+  const url = document.querySelector('#classifyUrl').value;
+  const img = await loadImage(url);
+  imageContainer.innerHTML = "";
+  imageContainer.appendChild(img);
 }
