@@ -12,6 +12,7 @@ const loadImage = (url) => {
     img.src = url;
     img.width = 224;
     img.height = 224;
+    img.crossOrigin = "anonymous";
     img.onload = function() {
       console.log(`Added: ${url}`)
       resolve(this);
