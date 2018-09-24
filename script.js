@@ -33,13 +33,16 @@ const loadingModelState = () => {
   }
 }
 
-const loadImagesClasses = async (type, amount) => {
+const addNewClass = async (imageClass, imageName, numberOfImages, path = "images/") => {
   const imgs = [];
-  for (let i = 1; i <= amount; i++) {
-    const img = await loadImage(`images/${type}${i}.jpg`);
+  for (let i = 1; i <= numberOfImages; i++) {
+    const img = await loadImage(`${path}${imageName}${i}.jpg`);
     imgs.push(img);
   }
-  return imgs;
+
+  for (const img of imgs) {
+    classifier.addImage(img, imageClass);
+  }
 }
 
 async function modelReady() {
@@ -48,20 +51,11 @@ async function modelReady() {
   loadingModelState();
 
   classifier = features.classification();
-  const dexterImgs = await loadImagesClasses('dexter', 3);
-  for (const dexter of dexterImgs) {
-    classifier.addImage(dexter, "dexter");
-  }
-
-  const deedeeImgs = await loadImagesClasses('dee', 4);
-  for (const deedee of deedeeImgs) {
-    classifier.addImage(deedee, "dee dee");
-  }
-
-  const cerebroImgs = await loadImagesClasses('cerebro', 3);
-  for (const cerebro of cerebroImgs) {
-    classifier.addImage(cerebro, "cerebro");
-  }
+  await addNewClass('dexter', 'dexter', 3);
+  await addNewClass('dee dee', 'dee', 4);
+  await addNewClass('cerebro', 'cerebro', 3);
+  await addNewClass('santiago', 'butterfly', 32, 'images/butterfly/');
+  await addNewClass('Pedro Sierra', 'shampoo', 32, 'images/shampoo/');
 
   await train();
 
