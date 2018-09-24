@@ -7,15 +7,18 @@ let imageContainer = document.querySelector('.imageContainer');
 features = ml5.featureExtractor('MobileNet', modelReady);
 
 const loadImage = (url) => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const img = new Image();
+    img.crossOrigin = "anonymous";
     img.src = url;
     img.width = 224;
     img.height = 224;
-    img.crossOrigin = "anonymous";
-    img.onload = function() {
+    img.onload = function () {
       console.log(`Added: ${url}`)
       resolve(this);
+    }
+    img.onerror = function (err) {
+      reject(err)
     }
   })
 }
@@ -68,11 +71,11 @@ async function modelReady() {
 
 function train() {
   return new Promise((resolve) => {
-    classifier.train(function (loose) { 
+    classifier.train(function (loose) {
       console.log(loose)
       if (loose === null) {
         resolve();
-      } 
+      }
     });
   })
 }
@@ -90,8 +93,12 @@ async function classify() {
 }
 
 const displayImage = async () => {
-  const url = document.querySelector('#classifyUrl').value;
-  const img = await loadImage(url);
-  imageContainer.innerHTML = "";
-  imageContainer.appendChild(img);
+  try {
+    const url = document.querySelector('#classifyUrl').value;
+    const img = await loadImage(url);
+    imageContainer.innerHTML = "";
+    imageContainer.appendChild(img);
+  } catch (error) {
+    resultContainer.textContent = `Image protected by CORS or doesn't exists, please use another one`;
+  }
 }
