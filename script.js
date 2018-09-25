@@ -51,11 +51,8 @@ async function modelReady() {
   loadingModelState();
 
   classifier = features.classification();
-  await addNewClass('dexter', 'dexter', 3);
-  await addNewClass('dee dee', 'dee', 4);
-  await addNewClass('cerebro', 'cerebro', 3);
-  await addNewClass('santiago', 'butterfly', 32, 'images/butterfly/');
-  await addNewClass('Pedro Sierra', 'shampoo', 32, 'images/shampoo/');
+  await addNewClass('Santiago', 'butterfly', 32, 'images/butterfly/');
+  await addNewClass('Pedro Null', 'shampoo', 51, 'images/shampoo/');
 
   await train();
 
