@@ -1,8 +1,88 @@
-.classify {
-  margin-top: 20px;
+body {
+  background-image: url(images/background.jpg);
+  background-size: cover;
+  font-family: tahoma;
+}
+
+.container {
+  width: 75%;
+  height: 75%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  background-color: rgba(255,255,255,0.4);
+  padding: 30px 20px;
+}
+
+.instructions {
+  font-size: 24px;
+  text-align: center;
+  color: #868787;
+}
+
+.urlContainer {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.urlContainer input {
+  width: 96%;
+  height: 35px;
+  border: solid transparent 1px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.preview {
+  margin-top: 10%;
+}
+
+.previewOuterBox {
+  border: solid #ffffff 2px;
+  border-radius: 5px;
+  width: 50%;
+  height: 25%;
+  margin: auto;
+  padding: 3%;
+}
+
+.previewInnerBox {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  color: #868787;
+  position: relative;
+}
+
+.previewInnerBox img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .result {
-  margin-top: 20px;
-  font-size: 18px;
+  width: 70%;
+  border-radius: 9px;
+  background-color: #45A5BF;
+  padding: 10px 20px;
+  color: #FFFFFF;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.result-prefix {
+  text-align: center;
+}
+
+.result-text {
+  text-align: center;
+  font-weight: bold;
 }

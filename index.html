@@ -8,12 +8,21 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="classify">
-    url: <input type="text" id="classifyUrl" onkeyup="displayImage()" value=''>
-    <input type="button" value="CLASSIFY" disabled class="classifyBtn" onclick="classify()" />
+  <div class="container">
+    <div class="instructions">Paste an image and I'll guess if it's a <b>Santiago</b> or a <b>Pedro Null</b> </div>
+    <div class="urlContainer">
+      <input type="text" id="classifyUrl" onkeyup="displayImage()">
+    </div>
+    <div class="preview">
+      <div class="previewOuterBox">
+        <div class="previewInnerBox"></div>
+      </div>
+    </div>
+    <div class="result">
+      <div class="result-prefix"></div>
+      <div class="result-text"></div>
+    </div>
   </div>
-  <div class="result">Preparing...</div>
-  <div class="imageContainer"></div>
   <script src="./script.js"></script>
 </body>
 </html>

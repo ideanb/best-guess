@@ -1,8 +1,9 @@
 let features;
 let classifier;
 let loadingModel;
-let resultContainer = document.querySelector('.result');
-let imageContainer = document.querySelector('.imageContainer');
+let resultContainer = document.querySelector('.result-text');
+let resultPrefixContainer = document.querySelector('.result-prefix');
+let imageContainer = document.querySelector('.previewInnerBox');
 
 features = ml5.featureExtractor('MobileNet', modelReady);
 
@@ -25,11 +26,9 @@ const loadImage = (url) => {
 
 const loadingModelState = () => {
   if (loadingModel) {
-    resultContainer.textContent = "Loading model.."
-    document.querySelector('.classifyBtn').setAttribute('disabled', 'disabled');
+    resultContainer.textContent = "Loading..."
   } else {
     resultContainer.textContent = "Model Ready!!!"
-    document.querySelector('.classifyBtn').removeAttribute('disabled');
   }
 }
 
@@ -79,7 +78,8 @@ async function classify() {
       console.log(err);
     }
     console.log(result);
-    resultContainer.textContent = `Result: ${result.toUpperCase()}`;
+    resultPrefixContainer.textContent = `I'm sure it's a`;
+    resultContainer.textContent = result.toUpperCase();
   })
 }
 
@@ -89,6 +89,7 @@ const displayImage = async () => {
     const img = await loadImage(url);
     imageContainer.innerHTML = "";
     imageContainer.appendChild(img);
+    await classify();
   } catch (error) {
     resultContainer.textContent = `Image protected by CORS or doesn't exists, please use another one`;
   }
