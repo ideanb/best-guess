@@ -6,7 +6,7 @@ body {
 
 .container {
   width: 75%;
-  height: 75%;
+  height: 80%;
   margin: auto;
   position: absolute;
   top: 0;
@@ -16,9 +16,11 @@ body {
   border-radius: 15px;
   background-color: rgba(255,255,255,0.4);
   padding: 30px 20px;
+  overflow-y: auto;
 }
 
 .instructions {
+  position: relative;
   font-size: 24px;
   text-align: center;
   color: #868787;
@@ -31,7 +33,7 @@ body {
 }
 
 .urlContainer input {
-  width: 96%;
+  width: 76%;
   height: 35px;
   border: solid transparent 1px;
   border-radius: 6px;
@@ -47,8 +49,8 @@ body {
 .previewOuterBox {
   border: solid #ffffff 2px;
   border-radius: 5px;
-  width: 50%;
-  height: 25%;
+  width: 100px;
+  height: 100px;
   margin: auto;
   padding: 3%;
 }
@@ -85,4 +87,129 @@ body {
 .result-text {
   text-align: center;
   font-weight: bold;
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  .container {
+    width: 85%;
+    height: 85%;
+  }
+
+  .instructions {
+    font-size: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .urlContainer {
+    margin-top: 30px;
+  }
+
+  .urlContainer input {
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .preview {
+    margin-top: 30px;
+  }
+  
+  .previewOuterBox {
+    width: 160px;
+    height: 160px;
+    padding: 7px;
+  }
+  
+  .result {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .container {
+    width: 75%;
+    height: 75%;
+  }
+
+  .urlContainer {
+    margin-top: 30px;
+  }
+
+  .urlContainer input {
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .preview {
+    margin-top: 30px;
+  }
+  
+  .previewOuterBox {
+    width: 160px;
+    height: 160px;
+    padding: 7px;
+  }
+  
+  .result {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width : 768px) and (orientation: landscape) {
+  .instructions {
+    font-size: 30px;
+  }
+
+  .urlContainer {
+    margin-top: 20px;
+  }
+
+  .urlContainer input {
+    height: 35px;
+  }
+
+  .preview {
+    margin-top: 20px;
+  }
+  
+  .previewOuterBox {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .result {
+    margin-top: 20px;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .urlContainer {
+    margin-top: 50px;
+  }
+
+  .urlContainer input {
+    height: 55px;
+    font-size: 18px;
+  }
+
+  .preview {
+    margin-top: 50px;
+  }
+  
+  .previewOuterBox {
+    width: 224px;
+    height: 160px;
+    padding: 7px;
+  }
+  
+  .result {
+    margin-top: 30px;
+    font-size: 18px;
+  }
 }
