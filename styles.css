@@ -33,7 +33,7 @@ body {
 }
 
 .urlContainer input {
-  width: 76%;
+  width: 96%;
   height: 35px;
   border: solid transparent 1px;
   border-radius: 6px;
@@ -189,6 +189,12 @@ body {
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
+  .instructions {
+    font-size: 44px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
   .urlContainer {
     margin-top: 50px;
   }
@@ -204,12 +210,49 @@ body {
   
   .previewOuterBox {
     width: 224px;
-    height: 160px;
+    height: 224px;
     padding: 7px;
   }
   
   .result {
-    margin-top: 30px;
-    font-size: 18px;
+    margin-top: 50px;
+    font-size: 44px;
+  }
+}
+
+@media only screen and (min-width : 2400px) {
+  .container {
+    padding: 50px 30px;
+  }
+
+  .instructions {
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 60px;
+  }
+
+  .urlContainer {
+    margin-top: 100px;
+  }
+
+  .urlContainer input {
+    width: 76%;
+    height: 90px;
+    font-size: 32px;
+  }
+
+  .preview {
+    margin-top: 100px;
+  }
+  
+  .previewOuterBox {
+    width: 350px;
+    height: 350px;
+    padding: 7px;
+  }
+  
+  .result {
+    margin-top: 100px;
+    font-size: 60px;
   }
 }
