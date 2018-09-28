@@ -27,8 +27,10 @@ const loadImage = (url) => {
 const loadingModelState = () => {
   if (loadingModel) {
     resultContainer.textContent = "Loading..."
+    document.querySelector('#classifyUrl').setAttribute('disabled','disabled');
   } else {
-    resultContainer.textContent = "Model Ready!!!"
+    document.querySelector('#classifyUrl').removeAttribute('disabled');
+    resultContainer.textContent = "Ready!!!"
   }
 }
 
